@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Splash.unity
+    path: Assets/Caixa/Scenes/Splash.unity
     guid: 72d4f2dea3172fa4885e161d477b8157
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Caixa/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/FinalFinal/ScenesFinales/Derrota.unity
@@ -27,13 +27,13 @@ EditorBuildSettings:
     path: Assets/FinalFinal/ScenesFinales/Armeria.unity
     guid: ba97e79200155fb48b4d9991466c574e
   - enabled: 1
-    path: Assets/Scenes/Creditos.unity
+    path: Assets/Caixa/Scenes/Creditos.unity
     guid: 406c9f1e4ffe39a4e9ca9699c91880d4
   - enabled: 1
-    path: Assets/Scenes/MenuPrincipal.unity
+    path: Assets/Caixa/Scenes/MenuPrincipal.unity
     guid: fb8f22a53fb8ab2418cb0fb1596b582a
   - enabled: 1
-    path: Assets/Scenes/Historia.unity
+    path: Assets/Caixa/Scenes/Historia.unity
     guid: 6c3379a79e845e34fad40acd3da3fedd
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

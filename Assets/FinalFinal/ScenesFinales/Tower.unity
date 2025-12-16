@@ -682,8 +682,8 @@ MonoBehaviour:
   selectedSpot: {fileID: 298024650}
   towerPrefab1: {fileID: 6983147032551934007, guid: 8c02087abff4526448e077073baefdac, type: 3}
   towerPrefab2: {fileID: 7554483310581882304, guid: 54bff2ff577c26845b24be2f0897ce65, type: 3}
-  tower1Price: 50
-  tower2Price: 75
+  tower1Price: 1
+  tower2Price: 1
 --- !u!114 &298024650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7250,7 +7250,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 200
   m_TargetDisplay: 0
 --- !u!224 &2117011805
 RectTransform:
@@ -7378,13 +7378,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6852036502243109952, guid: 8c02087abff4526448e077073baefdac, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6983147032551934007, guid: 8c02087abff4526448e077073baefdac, type: 3}
       propertyPath: m_Name
       value: Tanque
       objectReference: {fileID: 0}
     - target: {fileID: 6983147032551934007, guid: 8c02087abff4526448e077073baefdac, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7403,7 +7407,7 @@ SceneRoots:
   - {fileID: 2634643512653550377}
   - {fileID: 1436239698}
   - {fileID: 3741598899023962226}
+  - {fileID: 2117011805}
   - {fileID: 1198875106}
   - {fileID: 298024648}
-  - {fileID: 2117011805}
   - {fileID: 81922197}
