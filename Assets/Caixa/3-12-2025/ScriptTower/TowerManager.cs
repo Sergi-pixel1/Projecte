@@ -16,6 +16,12 @@ public class TowerManager : MonoBehaviour
 
     void Awake()
     {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         instance = this;
     }
 
@@ -32,24 +38,37 @@ public class TowerManager : MonoBehaviour
     void TryBuild(GameObject prefab, int price)
     {
         if (selectedSpot == null)
-            return;
-
-        // Verificar oro
-        if (!GoldManager.instance.SpendGold(price))
         {
-            Debug.Log("No tienes suficiente oro.");
-            // Aquí podrías mostrar un panel de aviso en la UI
+            Debug.LogWarning("No hay TowerSpot seleccionado");
             return;
         }
 
-        // Construir torre
+        if (prefab == null)
+        {
+            Debug.LogError("Prefab de torre no asignado");
+            return;
+        }
+
+        if (GoldManager.instance == null)
+        {
+            Debug.LogError("GoldManager no existe en la escena");
+            return;
+        }
+
+        if (!GoldManager.instance.SpendGold(price))
+        {
+            Debug.Log("No tienes suficiente oro");
+            return;
+        }
+
         Instantiate(prefab, selectedSpot.transform.position, Quaternion.identity);
 
-        // Ocultar menú
-        selectedSpot.towerMenuUI.SetActive(false);
+        if (selectedSpot.towerMenuUI != null)
+            selectedSpot.towerMenuUI.SetActive(false);
 
         selectedSpot = null;
     }
 }
+
 
 

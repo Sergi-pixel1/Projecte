@@ -1,15 +1,21 @@
 using UnityEngine;
-using TMPro; // si usas TextMeshPro
+using TMPro;
 
 public class GoldManager : MonoBehaviour
 {
     public static GoldManager instance;
 
-    public int gold = 100;             // Oro inicial
-    public TMP_Text goldText;          // Texto en el Canvas
+    public int gold = 100;
+    public TMP_Text goldText;
 
     void Awake()
     {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         instance = this;
     }
 
@@ -20,13 +26,12 @@ public class GoldManager : MonoBehaviour
 
     public bool SpendGold(int amount)
     {
-        if (gold >= amount)
-        {
-            gold -= amount;
-            UpdateUI();
-            return true;
-        }
-        return false;
+        if (gold < amount)
+            return false;
+
+        gold -= amount;
+        UpdateUI();
+        return true;
     }
 
     public void AddGold(int amount)
@@ -37,7 +42,14 @@ public class GoldManager : MonoBehaviour
 
     void UpdateUI()
     {
-        goldText.text = gold.ToString() + "P";
+        if (goldText == null)
+        {
+            Debug.LogError("GoldText no asignado en el Inspector");
+            return;
+        }
+
+        goldText.text = gold + "P";
     }
 }
+
 

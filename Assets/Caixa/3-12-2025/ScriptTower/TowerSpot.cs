@@ -2,15 +2,25 @@ using UnityEngine;
 
 public class TowerSpot : MonoBehaviour
 {
-    public GameObject towerMenuUI; // Panel que aparecerá para seleccionar torre
+    public GameObject towerMenuUI;
 
     void OnMouseDown()
     {
-        // Mostrar el panel de selección
-        towerMenuUI.SetActive(true);
+        if (towerMenuUI == null)
+        {
+            Debug.LogError("TowerMenuUI no asignado en " + gameObject.name);
+            return;
+        }
 
-        // Opcional: guardar la referencia de este spot para colocar la torre después
+        if (TowerManager.instance == null)
+        {
+            Debug.LogError("TowerManager no existe en la escena");
+            return;
+        }
+
+        towerMenuUI.SetActive(true);
         TowerManager.instance.selectedSpot = this;
     }
 }
+
 
