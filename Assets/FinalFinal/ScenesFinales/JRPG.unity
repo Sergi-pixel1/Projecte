@@ -505,7 +505,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 185.1, y: -130.1}
+  m_AnchoredPosition: {x: 294, y: -191}
   m_SizeDelta: {x: 129.9711, y: 81.1018}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &372825781
@@ -631,7 +631,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -254, y: -180.9}
+  m_AnchoredPosition: {x: -440, y: -346}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &383002176
@@ -818,7 +818,6 @@ GameObject:
   - component: {fileID: 732231593}
   - component: {fileID: 732231595}
   - component: {fileID: 732231596}
-  - component: {fileID: 732231597}
   m_Layer: 0
   m_Name: B
   m_TagString: Untagged
@@ -949,22 +948,6 @@ MonoBehaviour:
   maxHP: 10
   currentHP: 10
   speed: 4
---- !u!114 &732231597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 732231592}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9872c3cb59d5d634f9a51a7ef6f5c6a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitName: Enemigo2
-  maxHP: 10
-  currentHP: 0
-  speed: 4
 --- !u!1 &806935636
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,7 +1047,6 @@ GameObject:
   - component: {fileID: 946365397}
   - component: {fileID: 946365399}
   - component: {fileID: 946365400}
-  - component: {fileID: 946365401}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Untagged
@@ -1195,22 +1177,6 @@ MonoBehaviour:
   maxHP: 10
   currentHP: 10
   speed: 5
---- !u!114 &946365401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 946365396}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9872c3cb59d5d634f9a51a7ef6f5c6a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitName: Enemigo1
-  maxHP: 10
-  currentHP: 0
-  speed: 5
 --- !u!1 &980832706
 GameObject:
   m_ObjectHideFlags: 0
@@ -1223,7 +1189,6 @@ GameObject:
   - component: {fileID: 980832707}
   - component: {fileID: 980832709}
   - component: {fileID: 980832710}
-  - component: {fileID: 980832711}
   m_Layer: 0
   m_Name: C
   m_TagString: Untagged
@@ -1353,22 +1318,6 @@ MonoBehaviour:
   unitName: Enemigo3
   maxHP: 10
   currentHP: 10
-  speed: 3
---- !u!114 &980832711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 980832706}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9872c3cb59d5d634f9a51a7ef6f5c6a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitName: Enemigo3
-  maxHP: 10
-  currentHP: 0
   speed: 3
 --- !u!1 &1186086684
 GameObject:
@@ -1746,10 +1695,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1028, y: 760}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1838,7 +1787,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -54.133, y: -136.4}
+  m_AnchoredPosition: {x: -182, y: -231}
   m_SizeDelta: {x: 108.27, y: 92.777}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1534318529
@@ -2056,7 +2005,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 52.56961, y: -14.4}
+  m_AnchoredPosition: {x: 115, y: -28}
   m_SizeDelta: {x: 384.509, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1875168456
