@@ -51,6 +51,9 @@ EditorBuildSettings:
     path: Assets/Caixa/Scenes/Creditos.unity
     guid: 406c9f1e4ffe39a4e9ca9699c91880d4
   - enabled: 1
+    path: Assets/FinalFinal/ScenesFinales/Victoria.unity
+    guid: 0acd8afa0c5b7dd4682a6700c4b8c0b2
+  - enabled: 1
     path: Assets/JRPG/Aventura.unity
     guid: 042dcfa0441e1ba48976ae237c764d40
   - enabled: 1
