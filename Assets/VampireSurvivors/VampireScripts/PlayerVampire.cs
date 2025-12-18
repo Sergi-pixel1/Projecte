@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class PlayerVampire : MonoBehaviour
 {
+    [Header("Referencias")]
     public GameObject camara;
+    public GameObject panelDerrota;
 
     [Header("Movimiento")]
     public float speed = 5f;
@@ -15,11 +17,11 @@ public class PlayerVampire : MonoBehaviour
     [Header("Vidas")]
     public int vidas = 3;
 
-    [Header("UI")]
-    public GameObject panelDerrota; // Arrástralo desde el Inspector
-
     private float minZoom;
     private float maxZoom;
+
+    private Animator animator;       // Animator del personaje
+    private SpriteRenderer spriteRenderer; // Para voltear el sprite según dirección
 
     private void Start()
     {
@@ -27,19 +29,46 @@ public class PlayerVampire : MonoBehaviour
         maxZoom = 10;
 
         panelDerrota.SetActive(false);
+
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    void Update()
+    private void Update()
+    {
+        HandleMovement();
+        HandleCameraZoom();
+    }
+
+    private void HandleMovement()
     {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
-        Vector2 move = new Vector2(h, v).normalized * speed * Time.deltaTime;
+        Vector2 input = new Vector2(h, v);
+
+        // Movimiento del personaje
+        Vector2 move = input.normalized * speed * Time.deltaTime;
         transform.Translate(move);
 
+        // Actualizamos la animación
+        if (animator != null)
+        {
+            animator.SetFloat("Speed", input.magnitude);
+        }
+
+        // Flip del sprite según dirección
+        if (spriteRenderer != null)
+        {
+            if (h > 0) spriteRenderer.flipX = false;
+            else if (h < 0) spriteRenderer.flipX = true;
+        }
+    }
+
+    private void HandleCameraZoom()
+    {
         float mouse = Input.GetAxis("Mouse ScrollWheel");
         float zoom = camara.GetComponent<Camera>().orthographicSize + mouse;
-        camara.GetComponent<Camera>().orthographicSize =
-            Mathf.Clamp(zoom, minZoom, maxZoom);
+        camara.GetComponent<Camera>().orthographicSize = Mathf.Clamp(zoom, minZoom, maxZoom);
     }
 
     public void GainXP(int amount)
@@ -54,7 +83,7 @@ public class PlayerVampire : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Enemy"))
         {
@@ -68,11 +97,13 @@ public class PlayerVampire : MonoBehaviour
         }
     }
 
-    void GameOver()
+    private void GameOver()
     {
         Debug.Log($"¡Game Over! Nivel alcanzado: {level}");
         panelDerrota.SetActive(true);
         Time.timeScale = 0f;
     }
 }
+
+
 
