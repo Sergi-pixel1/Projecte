@@ -14,9 +14,15 @@ public class BalaVampire : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
+            // Avisamos al VictoryManager
+            VictoryManager.Instance?.EnemigoEliminado();
+
+            // Damos experiencia al jugador
+            FindObjectOfType<PlayerVampire>()?.GainXP(20);
+
+            // Destruimos enemigo y bala
             Destroy(other.gameObject);
             Destroy(gameObject);
-            FindObjectOfType<PlayerVampire>()?.GainXP(20);
         }
     }
 
@@ -25,3 +31,4 @@ public class BalaVampire : MonoBehaviour
         Destroy(gameObject);
     }
 }
+

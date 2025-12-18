@@ -1,21 +1,33 @@
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
 
 public class PlayerVampire : MonoBehaviour
 {
     public GameObject camara;
+
+    [Header("Movimiento")]
     public float speed = 5f;
+
+    [Header("Experiencia")]
     public int xp;
     public int level = 1;
     private int xpToNext = 100;
+
+    [Header("Vidas")]
+    public int vidas = 3;
+
+    [Header("UI")]
+    public GameObject panelDerrota; // Arrástralo desde el Inspector
+
     private float minZoom;
     private float maxZoom;
 
     private void Start()
     {
-         minZoom = 3;
-     maxZoom = 10; 
-}
+        minZoom = 3;
+        maxZoom = 10;
+
+        panelDerrota.SetActive(false);
+    }
 
     void Update()
     {
@@ -24,18 +36,10 @@ public class PlayerVampire : MonoBehaviour
         Vector2 move = new Vector2(h, v).normalized * speed * Time.deltaTime;
         transform.Translate(move);
 
-
-        
-            float mouse= Input.GetAxis("Mouse ScrollWheel");
-        Debug.Log("Mouse" + mouse);
-        float zoom = camara.gameObject.GetComponent<Camera>().orthographicSize + mouse;
-        camara.gameObject.GetComponent<Camera>().orthographicSize = Mathf.Clamp(zoom, minZoom, maxZoom);
-
-
-
-
-
-
+        float mouse = Input.GetAxis("Mouse ScrollWheel");
+        float zoom = camara.GetComponent<Camera>().orthographicSize + mouse;
+        camara.GetComponent<Camera>().orthographicSize =
+            Mathf.Clamp(zoom, minZoom, maxZoom);
     }
 
     public void GainXP(int amount)
@@ -54,8 +58,21 @@ public class PlayerVampire : MonoBehaviour
     {
         if (col.CompareTag("Enemy"))
         {
-            Debug.Log($"¡Game Over! Nivel alcanzado: {level}");
-            Time.timeScale = 0;
+            vidas--;
+            Debug.Log("Vidas restantes: " + vidas);
+
+            if (vidas <= 0)
+            {
+                GameOver();
+            }
         }
     }
+
+    void GameOver()
+    {
+        Debug.Log($"¡Game Over! Nivel alcanzado: {level}");
+        panelDerrota.SetActive(true);
+        Time.timeScale = 0f;
+    }
 }
+
