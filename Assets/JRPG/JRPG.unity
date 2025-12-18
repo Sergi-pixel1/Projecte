@@ -438,9 +438,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 65137835}
+      - m_Target: {fileID: 447570541}
         m_TargetAssemblyTypeName: BattleManager, Assembly-CSharp
-        m_MethodName: EndPlayerTurn
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -788,7 +788,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Player
   maxHP: 100
-  currentHP: 0
+  currentHP: 100
   speed: 10
   battleManager: {fileID: 65137835}
 --- !u!114 &447570545
@@ -804,7 +804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 100
-  currentHP: 0
+  currentHP: 100
   hpSlider: {fileID: 383002176}
 --- !u!1 &732231592
 GameObject:
