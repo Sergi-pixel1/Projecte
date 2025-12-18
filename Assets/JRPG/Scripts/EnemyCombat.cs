@@ -70,6 +70,8 @@ public class EnemyCombat : Combatant
         if (spriteRenderer != null)
             spriteRenderer.color = active ? Color.red : Color.white;
     }
+
+    
 }
 
 

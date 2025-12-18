@@ -27,6 +27,27 @@ EditorBuildSettings:
     path: Assets/FinalFinal/ScenesFinales/Armeria.unity
     guid: ba97e79200155fb48b4d9991466c574e
   - enabled: 1
+    path: Assets/FinalFinal/ScenesFinales/CreditosFinales.unity
+    guid: 898744c8d2aa39c41b381e522e742b6c
+  - enabled: 1
+    path: Assets/FinalFinal/ScenesFinales/JRPG.unity
+    guid: bfded8dc6cb966047841375fb6d694f6
+  - enabled: 1
+    path: Assets/FinalFinal/ScenesFinales/MenuPrincipalFinal.unity
+    guid: f25c7aeffb4ef4847900ecbf7869e636
+  - enabled: 1
+    path: Assets/FinalFinal/ScenesFinales/Mesh2.unity
+    guid: 4b965261cd4f7394a97e018522e94002
+  - enabled: 1
+    path: Assets/FinalFinal/ScenesFinales/SplashFinal.unity
+    guid: 3228c759c9793514fbf8a8212605c1f7
+  - enabled: 1
+    path: Assets/FinalFinal/ScenesFinales/Tower.unity
+    guid: 4112f86193008f5409ba950b2af80c0d
+  - enabled: 1
+    path: Assets/FinalFinal/ScenesFinales/VampireJuego.unity
+    guid: 49620ddafa9d0604abd525a57fb8e636
+  - enabled: 1
     path: Assets/Caixa/Scenes/Creditos.unity
     guid: 406c9f1e4ffe39a4e9ca9699c91880d4
   - enabled: 1

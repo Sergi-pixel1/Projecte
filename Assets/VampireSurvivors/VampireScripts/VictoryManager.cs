@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class VictoryManager : MonoBehaviour
 {
@@ -50,6 +52,15 @@ public class VictoryManager : MonoBehaviour
     {
         panelVictoria.SetActive(true);
         Time.timeScale = 0f;
+
+        StartCoroutine(CambiarAEscenaHex());
+    }
+
+    IEnumerator CambiarAEscenaHex()
+    {
+        yield return new WaitForSecondsRealtime(3f);
+        Time.timeScale = 1f; // importante restaurar el tiempo
+        SceneManager.LoadScene("hex");
     }
 }
 

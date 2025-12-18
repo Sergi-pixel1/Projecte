@@ -1563,7 +1563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemigosMuertos: 0
-  enemigosParaGanar: 50
+  enemigosParaGanar: 10
   panelVictoria: {fileID: 1291007087}
   textoEnemigosRestantes: {fileID: 2015025001}
 --- !u!114 &2046324021

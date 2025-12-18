@@ -7,6 +7,14 @@ TagManager:
   - PlayerVampire
   - EnemigoVampire
   - Enemy
+  - TowerSpot
+  - CaminoDePuntos
+  - EnemigoTower
+  - Terreno
+  - PocimaAzul
+  - PocimaRoja
+  - PocimaVerde
+  - Enemigo
   layers:
   - Default
   - TransparentFX
