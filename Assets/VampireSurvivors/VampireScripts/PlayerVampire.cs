@@ -20,7 +20,7 @@ public class PlayerVampire : MonoBehaviour
     private float minZoom;
     private float maxZoom;
 
-    private Animator animator;       // Animator del personaje
+    private Animator animator;          // Animator del personaje
     private SpriteRenderer spriteRenderer; // Para voltear el sprite según dirección
 
     private void Start()
@@ -50,17 +50,19 @@ public class PlayerVampire : MonoBehaviour
         Vector2 move = input.normalized * speed * Time.deltaTime;
         transform.Translate(move);
 
-        // Actualizamos la animación
+        // Actualizamos la animación con umbral mínimo
         if (animator != null)
         {
-            animator.SetFloat("Speed", input.magnitude);
+            float speedValue = input.magnitude < 0.1f ? 0f : input.magnitude;
+            animator.SetFloat("Speed", speedValue);
+            // Debug.Log("Speed: " + speedValue); // Puedes descomentar para depurar
         }
 
         // Flip del sprite según dirección
         if (spriteRenderer != null)
         {
-            if (h > 0) spriteRenderer.flipX = false;
-            else if (h < 0) spriteRenderer.flipX = true;
+            if (h > 0) spriteRenderer.flipX = true;
+            else if (h < 0) spriteRenderer.flipX = false;
         }
     }
 
@@ -104,6 +106,7 @@ public class PlayerVampire : MonoBehaviour
         Time.timeScale = 0f;
     }
 }
+
 
 
 
