@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro; // Importante para usar TextMeshProUGUI
+using TMPro;
 
 public class TurnBasedCombatUI : MonoBehaviour
 {
@@ -8,18 +8,22 @@ public class TurnBasedCombatUI : MonoBehaviour
     public int playerHP = 20;
     public int enemyHP = 15;
 
+    public int playerMana = 10;
+    public int maxMana = 10;
+
     [Header("UI Elements")]
-    public TextMeshProUGUI combatLog;   // TMP en lugar de Text
+    public TextMeshProUGUI combatLog;
     public Button attackButton;
     public Button defendButton;
+    public Button healButton;
 
     private bool playerTurn = true;
 
     void Start()
     {
-        // Asegúrate de arrastrar los objetos en el Inspector
         attackButton.onClick.AddListener(PlayerAttack);
         defendButton.onClick.AddListener(PlayerDefend);
+        healButton.onClick.AddListener(PlayerHeal);
 
         combatLog.text = "¡Comienza el combate!";
     }
@@ -30,7 +34,10 @@ public class TurnBasedCombatUI : MonoBehaviour
 
         int damage = Random.Range(2, 6);
         enemyHP -= damage;
-        combatLog.text = "Jugador ataca y hace " + damage + " de daño.\nVida enemigo: " + enemyHP;
+
+        combatLog.text =
+            "Jugador ataca y hace " + damage + " de daño." +
+            "\nVida enemigo: " + enemyHP;
 
         if (enemyHP <= 0)
         {
@@ -47,18 +54,47 @@ public class TurnBasedCombatUI : MonoBehaviour
     {
         if (!playerTurn) return;
 
-        combatLog.text = "Jugador se defiende y recibe menos daño en el próximo ataque.";
+        combatLog.text =
+            "Jugador se defiende y recibirá menos daño.";
+
         playerTurn = false;
         EnemyTurn(true);
+    }
+
+    void PlayerHeal()
+    {
+        if (!playerTurn) return;
+
+        if (playerMana < 5)
+        {
+            combatLog.text += "\nNo hay suficiente Mana para curarse.";
+            return;
+        }
+
+        int heal = Random.Range(4, 7);
+        playerHP += heal;
+        playerMana -= 5;
+
+        combatLog.text =
+            "Jugador se cura " + heal + " de vida." +
+            "\nVida jugador: " + playerHP +
+            "\nMana restante: " + playerMana;
+
+        playerTurn = false;
+        EnemyTurn();
     }
 
     void EnemyTurn(bool playerDefended = false)
     {
         int damage = Random.Range(1, 4);
-        if (playerDefended) damage = Mathf.Max(0, damage - 2);
+        if (playerDefended)
+            damage = Mathf.Max(0, damage - 2);
 
         playerHP -= damage;
-        combatLog.text += "\nEnemigo ataca y hace " + damage + " de daño.\nVida jugador: " + playerHP;
+
+        combatLog.text +=
+            "\nEnemigo ataca y hace " + damage + " de daño." +
+            "\nVida jugador: " + playerHP;
 
         if (playerHP <= 0)
         {
@@ -67,6 +103,12 @@ public class TurnBasedCombatUI : MonoBehaviour
             return;
         }
 
+        // 
+        playerMana = Mathf.Min(maxMana, playerMana + 1);
+        combatLog.text +=
+            "\nJugador recupera 1 de Mana." +
+            "\nMana actual: " + playerMana;
+
         playerTurn = true;
     }
 
@@ -74,7 +116,10 @@ public class TurnBasedCombatUI : MonoBehaviour
     {
         attackButton.interactable = false;
         defendButton.interactable = false;
+        healButton.interactable = false;
     }
 }
+
+
 
 
